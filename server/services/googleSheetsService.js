@@ -8,7 +8,7 @@ const credentials = JSON.parse(
 const range = "Sheet1!A1:E";
 
 const SPREADSHEET_ID =
-  "1rsZW3CYoSQPTDvL4J-Y2ZeEYxFJli5fpNMvA_ESuLlY";
+  "YOUR SPREADSHEET ID HERE";
 
 const auth = new google.auth.GoogleAuth({
   credentials,
