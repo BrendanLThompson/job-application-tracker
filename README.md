@@ -3,6 +3,8 @@
 
 A full-stack web application to manage and track job applications effectively. This project allows users to log application details, update statuses, and synchronize data seamlessly with Google Sheets for added flexibility and collaboration.
 
+Currently, this application only communicates with my spreadsheet which can be found at: https://docs.google.com/spreadsheets/d/1rsZW3CYoSQPTDvL4J-Y2ZeEYxFJli5fpNMvA_ESuLlY/edit?usp=sharing
+
 ---
 
 ## **Features**
