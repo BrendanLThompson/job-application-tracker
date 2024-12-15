@@ -1,70 +1,142 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **Job Application Tracker**
 
-## Available Scripts
+A full-stack web application to manage and track job applications effectively. This project allows users to log application details, update statuses, and synchronize data seamlessly with Google Sheets for added flexibility and collaboration.
 
-In the project directory, you can run:
+Currently, this application only communicates with my spreadsheet which can be found at: https://docs.google.com/spreadsheets/d/1rsZW3CYoSQPTDvL4J-Y2ZeEYxFJli5fpNMvA_ESuLlY/edit?usp=sharing
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## **Features**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Application Management**:
+  - Add, edit, and delete job applications with ease.
+  - Track application details such as company name, job title, application date, and current status.
 
-### `npm test`
+- **Dynamic Status Updates**:
+  - Update application statuses (e.g., Applied, Interview, Offer, Denied/Rejected).
+  - Visual indicators (e.g., red borders) for "Denied/Rejected" applications using **TailwindCSS**.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Google Sheets Integration**:
+  - Synchronize application data between the app and Google Sheets using the Google Sheets API.
+  - Supports full data sync (MongoDB ↔ Google Sheets).
 
-### `npm run build`
+- **RESTful API**:
+  - Full CRUD functionality with robust backend routes for managing applications.
+  - Built with **Node.js**, **Express**, and **MongoDB**.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## **Technologies Used**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **Frontend**
+- **React**: Dynamic user interface and state management.
+- **TailwindCSS**: Modern utility-first styling for a responsive and user-friendly design.
 
-### `npm run eject`
+### **Backend**
+- **Node.js**: Server-side runtime.
+- **Express.js**: Lightweight framework for building RESTful APIs.
+- **MongoDB**: NoSQL database for scalable and efficient data storage.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **Integration**
+- **Google Sheets API**: Sync data between MongoDB and Google Sheets for enhanced flexibility.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## **Setup Instructions**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### **Prerequisites**
+- Node.js installed on your machine
+- MongoDB instance (local or cloud, e.g., MongoDB Atlas)
+- Google Cloud account with Google Sheets API enabled
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **Installation**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/job-application-tracker.git
+   cd job-application-tracker
+   ```
 
-### Code Splitting
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. **Set up environment variables**:
+   - Create a `.env` file in the project root with the following variables:
+     ```env
+     PORT=5000
+     MONGO_URI=your-mongodb-connection-string
+     SPREADSHEET_ID=your-google-sheet-id
+     GOOGLE_APPLICATION_CREDENTIALS=path-to-service-account.json
+     ```
 
-### Analyzing the Bundle Size
+4. **Run the server**:
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. **Start the frontend**:
+   - Navigate to the `client` directory and start the React app:
+     ```bash
+     cd client
+     npm start
+     ```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## **Usage**
 
-### Advanced Configuration
+1. Open the app in your browser at `http://localhost:3000`.
+2. Use the **"Add Application"** form to log job applications.
+3. Update application statuses using the dropdown menu.
+4. Sync data to Google Sheets using the **"Sync to Sheets"** button.
+5. Sync data from Google Sheets using the **"Sync from Sheets"** button.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## **API Endpoints**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### **Applications API**
+| Method | Endpoint                      | Description                         |
+|--------|-------------------------------|-------------------------------------|
+| GET    | `/api/applications`           | Fetch all applications              |
+| POST   | `/api/applications`           | Add a new application               |
+| PUT    | `/api/applications/:id`       | Update an application by ID         |
+| DELETE | `/api/applications/:id`       | Delete an application by ID         |
 
-### `npm run build` fails to minify
+### **Google Sheets API**
+| Method | Endpoint                      | Description                         |
+|--------|-------------------------------|-------------------------------------|
+| GET    | `/api/applications/sync-to-sheets`   | Sync MongoDB data to Google Sheets  |
+| GET    | `/api/applications/sync-from-sheets` | Sync Google Sheets data to MongoDB  |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## **Contributing**
+
+Contributions are welcome! Please follow these steps:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature-name`).
+3. Commit your changes (`git commit -m "Add some feature"`).
+4. Push to the branch (`git push origin feature/your-feature-name`).
+5. Open a pull request.
+
+---
+
+## **License**
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## **Acknowledgments**
+
+- [MongoDB](https://www.mongodb.com/) for NoSQL database.
+- [Google Sheets API](https://developers.google.com/sheets) for seamless data integration.
+- [React](https://reactjs.org/) and [TailwindCSS](https://tailwindcss.com/) for a modern frontend stack.
+
+---
