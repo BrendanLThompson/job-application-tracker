@@ -76,13 +76,12 @@ Currently, this application only runs on my machine and communicates with my spr
 
 4. **Run the server**:
    ```bash
-   npm start
+   cd server
+   node index.js
    ```
 
 5. **Start the frontend**:
-   - Navigate to the `client` directory and start the React app:
      ```bash
-     cd client
      npm start
      ```
 
